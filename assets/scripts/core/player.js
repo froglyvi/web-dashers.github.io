@@ -6,7 +6,6 @@ class PlayerState {
     this.y = 30;
     this.lastY = 30;
     this.lastGroundPosY = 30;
-	this.lastCeilPosY = null;
     this.yVelocity = 0;
     this.onGround = true;
     this.canJump = true;
@@ -1712,7 +1711,7 @@ if (this.p.isFlying || this.p.isUfo) {
       this.p.canJump = false;
       this.p.upKeyPressed = false;
       this.p.queuedHold = false;
-      this.p.yVelocity += this.flipMod() * 22.360064 * (this.p.isMini ? 0.8 : 1);
+      this.p.yVelocity = this.flipMod() * 22.360064 * (this.p.isMini ? 0.8 : 1);
       this.runRotateAction();
     } else if (this.p.isJumping) {
       this.p.yVelocity -= p * _0x3d1c6f * this.flipMod();
@@ -1774,7 +1773,7 @@ _updateBallJump(_0x2fe319) {
   if (this.p.upKeyPressed && this.p.canJump) {
     const _0x47d739 = this.flipMod();
     this.p.upKeyPressed = false;
-    this.p.yVelocity += _0x47d739 * 22.360064 * (this.p.isMini ? 0.8 : 1);
+    this.p.yVelocity = _0x47d739 * 22.360064 * (this.p.isMini ? 0.8 : 1);
     this.flipGravity(!this.p.gravityFlipped);
     this.p.onGround = false;
     this.p.canJump = false;
